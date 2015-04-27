@@ -12,6 +12,7 @@ angular
         view: '=calendarView',
         currentDay: '=calendarCurrentDay',
         control: '=calendarControl',
+        dayClick: '&calendarDayClick',
         eventClick: '&calendarEventClick',
         eventEditClick: '&calendarEditEventClick',
         eventDeleteClick: '&calendarDeleteEventClick',
@@ -28,7 +29,6 @@ angular
         dayViewSplit: '@calendarDayViewSplit'
       },
       controller: function($scope, $timeout, moment, calendarConfig) {
-
         var self = this;
 
         var weekTitleLabel = $scope.weekTitleLabel || calendarConfig.titleFormats.week;
