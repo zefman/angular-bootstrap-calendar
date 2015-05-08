@@ -2,11 +2,15 @@
   <a
     href="javascript:;"
     ng-click="eventClick({calendarEvent: event})"
-    ng-repeat="event in day.events track by $index"
+    ng-repeat="event in day.events | limitTo:3 | track by $index"
     class="pull-left event event-{{ event.type }} text-link"
     ng-mouseenter="highlightEvent(event, true)"
     ng-mouseleave="highlightEvent(event, false)"
     tooltip-append-to-body="true"
     tooltip="{{ event.title }}"
     >{{ event.title }}</a>
+    <a ng-if="day.events.length > 3" href="javascript:;"
+    class="pull-left event event-info text-link">
+        {{ day.events.length - 3 }} more...
+    </a>
 </div>
