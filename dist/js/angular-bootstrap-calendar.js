@@ -545,6 +545,7 @@
             scope: {
                 events: '=calendarEvents',
                 currentDay: '=calendarCurrentDay',
+                dayClick: '=calendarDayClick',
                 eventClick: '=calendarEventClick',
                 eventEditClick: '=calendarEditEventClick',
                 eventDeleteClick: '=calendarDeleteEventClick',
@@ -588,9 +589,15 @@
                         if (!dayClickedFirstRun) {
                             $scope.timespanClick({ calendarDate: $scope.view[rowIndex][cellIndex].date.startOf('day').toDate() });
                         }
-                        var handler = calendarHelper.toggleEventBreakdown($scope.view, rowIndex, cellIndex);
-                        $scope.view = handler.view;
-                        $scope.openEvents = handler.openEvents;
+                        // var handler = calendarHelper.toggleEventBreakdown($scope.view, rowIndex, cellIndex);
+                        // $scope.view = handler.view;
+                        // $scope.openEvents = handler.openEvents;
+                        if (typeof $scope.dayClick == 'function') {
+                            $scope.dayClick({
+                                date: $scope.view[rowIndex][cellIndex].date.startOf('day').toDate(),
+                                events: $scope.view[rowIndex][cellIndex].events
+                            });
+                        }
                     };
                     $scope.drillDown = function (day) {
                         var date = moment($scope.currentDay).clone().date(day).toDate();
@@ -671,6 +678,7 @@
                 view: '=calendarView',
                 currentDay: '=calendarCurrentDay',
                 control: '=calendarControl',
+                dayClick: '&calendarDayClick',
                 eventClick: '&calendarEventClick',
                 eventEditClick: '&calendarEditEventClick',
                 eventDeleteClick: '&calendarDeleteEventClick',

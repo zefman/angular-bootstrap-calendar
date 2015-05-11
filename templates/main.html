@@ -2,7 +2,7 @@
 
   <div class="alert alert-danger" ng-switch-default>The value passed to calendar-view is not set</div>
 
-  <mwl-calendar-year
+  <div mwl-calendar-year
     calendar-events="events"
     calendar-current-day="currentDay"
     calendar-event-click="eventClick"
@@ -13,9 +13,9 @@
     calendar-auto-open="autoOpen"
     calendar-timespan-click="timespanClick"
     ng-switch-when="year"
-  ></mwl-calendar-year>
+  ></div>
 
-  <mwl-calendar-month
+  <div mwl-calendar-month
     calendar-events="events"
     calendar-current-day="currentDay"
     calendar-day-click="dayClick",
@@ -28,18 +28,18 @@
     calendar-use-iso-week="useIsoWeek"
     calendar-timespan-click="timespanClick"
     ng-switch-when="month"
-    ></mwl-calendar-month>
+    ></div>
 
-  <mwl-calendar-week
+  <div mwl-calendar-week
     calendar-events="events"
     calendar-current-day="currentDay"
     calendar-event-click="eventClick"
     calendar-use-iso-week="useIsoWeek"
     calendar-timespan-click="timespanClick"
     ng-switch-when="week"
-    ></mwl-calendar-week>
+    ></div>
 
-  <mwl-calendar-day
+  <div mwl-calendar-day
     calendar-events="events"
     calendar-current-day="currentDay"
     calendar-event-click="eventClick"
@@ -49,5 +49,5 @@
     calendar-day-view-end="{{ dayViewEnd }}"
     calendar-day-view-split="{{ dayViewSplit || 30 }}"
     ng-switch-when="day"
-    ></mwl-calendar-day>
+    ></div>
 </div>
